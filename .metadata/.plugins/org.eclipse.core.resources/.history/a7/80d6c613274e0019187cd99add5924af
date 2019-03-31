@@ -1,0 +1,14 @@
+package com.restaurant.api.dao;
+
+import java.util.List;
+
+import com.restaurant.api.bean.RestaurantBean;
+import com.restaurant.api.bean.RestaurantLocationBean;
+
+public interface RestaurantDao {
+
+	boolean saveRestauntdetail(List<RestaurantBean> al);
+
+	Boolean saveRestauntLocdetail(List<RestaurantLocationBean> al);
+
+}

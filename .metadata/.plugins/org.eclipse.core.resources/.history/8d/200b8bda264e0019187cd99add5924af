@@ -1,0 +1,47 @@
+package com.restaurant.api.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ResturantandLocationDTO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private Integer Id;
+	
+	private String name;
+	
+	@JsonProperty("Cuisines")
+	private String cuisines;
+	
+	private Integer average_cost_for_two;
+	
+	private String currency;
+	
+	@JsonProperty("Has Table booking")
+	private String has_Table_Booking;
+	
+	@JsonProperty("Has Online delivery")
+	private String has_Online_Delivery;
+	
+	@JsonProperty("Aggregate rating")
+	private Float aggregate_Rating;
+	
+	@JsonProperty("Rating color")
+    private String rating_Color;
+	
+	@JsonProperty("Rating text")
+    private String rating_Text;
+	
+	@JsonProperty("Votes")
+    private String votes;
+	
+
+}

@@ -1,0 +1,9 @@
+package com.digital_hack_up.dao;
+
+import java.util.List;
+
+import com.restaurant.api.dto.CreditCardDTO;
+
+public interface CreditDao {
+   public List<CreditCardDTO> getDataEducationVsLimitBal();
+}

@@ -1,0 +1,9 @@
+package com.restaurant.api.dao;
+
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+import com.restaurant.api.bean.CreDitCardIndexBean;
+
+public interface ElasticSearchRepositery extends ElasticsearchRepository<CreDitCardIndexBean, Integer>{
+
+}

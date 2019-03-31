@@ -1,0 +1,217 @@
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class SocietGeneral {
+    
+ 
+	static class InputReader {
+        private InputStream stream;
+        private byte[] buf = new byte[1024];
+        private int curChar;
+        private int numChars;
+ 
+        public InputReader(InputStream stream) {
+            this.stream = stream;
+        }
+ 
+        public int read() {
+            if (numChars == -1)
+                throw new InputMismatchException();
+            if (curChar >= numChars) {
+                curChar = 0;
+                try {
+                    numChars = stream.read(buf);
+                } catch (IOException e) {
+                    throw new InputMismatchException();
+                }
+                if (numChars <= 0)
+                    return -1;
+            }
+            return buf[curChar++];
+        }
+ 
+        public String readLine() {
+            int c = read();
+            while (isSpaceChar(c))
+                c = read();
+            StringBuilder res = new StringBuilder();
+            do {
+                res.appendCodePoint(c);
+                c = read();
+            } while (!isEndOfLine(c));
+            return res.toString();
+        }
+ 
+        public String readString() {
+            int c = read();
+            while (isSpaceChar(c))
+                c = read();
+            StringBuilder res = new StringBuilder();
+            do {
+                res.appendCodePoint(c);
+                c = read();
+            } while (!isSpaceChar(c));
+            return res.toString();
+        }
+ 
+        public long readLong() {
+            int c = read();
+            while (isSpaceChar(c))
+                c = read();
+            int sgn = 1;
+            if (c == '-') {
+                sgn = -1;
+                c = read();
+            }
+            long res = 0;
+            do {
+                if (c < '0' || c > '9')
+                    throw new InputMismatchException();
+                res *= 10;
+                res += c - '0';
+                c = read();
+            } while (!isSpaceChar(c));
+            return res * sgn;
+        }
+ 
+        public int readInt() {
+            int c = read();
+            while (isSpaceChar(c))
+                c = read();
+            int sgn = 1;
+            if (c == '-') {
+                sgn = -1;
+                c = read();
+            }
+            int res = 0;
+            do {
+                if (c < '0' || c > '9')
+                    throw new InputMismatchException();
+                res *= 10;
+                res += c - '0';
+                c = read();
+            } while (!isSpaceChar(c));
+            return res * sgn;
+        }
+ 
+        public boolean isSpaceChar(int c) {
+            return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+        }
+ 
+        public boolean isEndOfLine(int c) {
+            return c == '\n' || c == '\r' || c == -1;
+        }
+    }
+ 
+    static class OutputWriter {
+        private final PrintWriter writer;
+ 
+        public OutputWriter(OutputStream outputStream) {
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+                    outputStream)));
+        }
+ 
+        public OutputWriter(Writer writer) {
+            this.writer = new PrintWriter(writer);
+        }
+ 
+        public void print(Object... objects) {
+            for (int i = 0; i < objects.length; i++) {
+                if (i != 0)
+                    writer.print(' ');
+                writer.print(objects[i]);
+            }
+        }
+ 
+        public void printLine(Object... objects) {
+            print(objects);
+            writer.println();
+        }
+ 
+        public void close() {
+            writer.close();
+        }
+    }
+    
+	public static void main(String[] args) throws Exception{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	    
+	    int T = Integer.parseInt(br.readLine());
+	    StringBuilder output = new StringBuilder();
+	    while (T-->0) {
+	    	Map<String,Integer> m=new HashMap<String,Integer>();
+	    	int No = Integer.parseInt(br.readLine());
+	    	for (int i = 0; i < No; i++) {
+	    		String st=br.readLine();
+	    		if(st.split(" ")[0]=="top") {
+	    			output.append(changeHashMap(m)+"\n");
+	    			
+	    		}else {
+				Integer va=m.get(st);
+				if(va!=null) {
+					m.put(st, va+1);
+				}else {
+					m.put(st, 1);
+				}
+	    		}
+			}
+	  
+	  }
+	}
+
+	private static StringBuilder changeHashMap(Map<String, Integer> m) {
+		Map<String,Integer> m1=new TreeMap<String,Integer>(Collections.reverseOrder());
+		Map<String,Integer> m2=new HashMap<String,Integer>();
+    	for(Map.Entry<String, Integer> entry:m.entrySet()) {
+    		m1.put(entry.getValue()+"-"+entry.getKey(),entry.getValue());
+    		Integer va=m2.get(String.valueOf(entry.getValue()));
+    		if(va!=null) {
+    			m2.put(String.valueOf(entry.getValue()), va+1);
+    		}else {
+    			m2.put(String.valueOf(entry.getValue()), 1);
+    		}
+    	}
+    	
+    	 
+		return getMainMethod(m1,m2);
+	}
+
+	private static StringBuilder getMainMethod(Map<String, Integer> m1, Map<String, Integer> m2) {
+		List<String> li=new ArrayList<>(m1.keySet());
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<li.size();i++) {
+			String v1=li.get(i).split("-")[0];
+			Integer j=m1.get(v1);
+			for(int j2=j+i-1;j2>=i;j2--) {
+				sb.append(li.get(j2)+" ");
+			}
+			i=j+i-1;
+		}
+		return sb;
+	}
+
+	
+ 
+	
+ 
+}
+

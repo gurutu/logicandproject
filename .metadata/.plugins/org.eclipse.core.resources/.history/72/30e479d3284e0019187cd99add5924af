@@ -1,0 +1,41 @@
+package com.restaurant.api.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.restaurant.api.bean.RestaurantBean;
+import com.restaurant.api.bean.RestaurantLocationBean;
+import com.restaurant.api.bean.ResturantandLocationDTO;
+import com.restaurant.api.repo.RestaurantLocRepo;
+import com.restaurant.api.repo.RestaurantRepo;
+
+@Repository
+public class RestaurantDaoImpl implements RestaurantDao{
+
+	@Autowired
+	private RestaurantRepo restRepo;
+	
+	@Autowired
+	private RestaurantLocRepo restLocRepo;
+	
+	@Override
+	public boolean saveRestauntdetail(List<RestaurantBean> al) {
+		return restRepo.saveAll(al)!=null;
+	}
+
+
+	@Override
+	public Boolean saveRestauntLocdetail(List<RestaurantLocationBean> al) {
+		return restLocRepo.saveAll(al)!=null;
+	}
+
+
+	@Override
+	public List<ResturantandLocationDTO> getAllResturantDetails() {
+		
+		return restRepo.getAllResturantDetails();
+	}
+
+}

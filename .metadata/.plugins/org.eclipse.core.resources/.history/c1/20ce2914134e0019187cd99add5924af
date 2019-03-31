@@ -1,0 +1,100 @@
+package com.restaurant.api.bean;
+
+import java.io.Serializable;
+
+public class RestaurantBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -444951849511454113L;
+	
+	private Integer Id;
+	private String name;
+	private String cuisines;
+	private Integer average_cost_for_two;
+	private String currency;
+	private String has_Table_Booking;
+	private String has_Online_Delivery;
+	private String aggregate_Rating;
+    private String rating_Color;
+    private String rating_Text;
+    private String votes;
+    
+    
+    
+    
+	public Integer getId() {
+		return Id;
+	}
+	public void setId(Integer id) {
+		Id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCuisines() {
+		return cuisines;
+	}
+	public void setCuisines(String cuisines) {
+		this.cuisines = cuisines;
+	}
+	public Integer getAverage_cost_for_two() {
+		return average_cost_for_two;
+	}
+	public void setAverage_cost_for_two(Integer average_cost_for_two) {
+		this.average_cost_for_two = average_cost_for_two;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public String getHas_Table_Booking() {
+		return has_Table_Booking;
+	}
+	public void setHas_Table_Booking(String has_Table_Booking) {
+		this.has_Table_Booking = has_Table_Booking;
+	}
+	public String getHas_Online_Delivery() {
+		return has_Online_Delivery;
+	}
+	public void setHas_Online_Delivery(String has_Online_Delivery) {
+		this.has_Online_Delivery = has_Online_Delivery;
+	}
+	public String getAggregate_Rating() {
+		return aggregate_Rating;
+	}
+	public void setAggregate_Rating(String aggregate_Rating) {
+		this.aggregate_Rating = aggregate_Rating;
+	}
+	public String getRating_Color() {
+		return rating_Color;
+	}
+	public void setRating_Color(String rating_Color) {
+		this.rating_Color = rating_Color;
+	}
+	public String getRating_Text() {
+		return rating_Text;
+	}
+	public void setRating_Text(String rating_Text) {
+		this.rating_Text = rating_Text;
+	}
+	public String getVotes() {
+		return votes;
+	}
+	public void setVotes(String votes) {
+		this.votes = votes;
+	}
+ 
+    
+
+
+	
+	
+	
+}

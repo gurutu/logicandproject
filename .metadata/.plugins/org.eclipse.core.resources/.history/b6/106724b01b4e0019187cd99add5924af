@@ -1,0 +1,11 @@
+package com.restaurant.api.service;
+
+import java.util.List;
+
+import com.restaurant.api.bean.RestaurantBean;
+
+public interface RestaurantService {
+
+	Boolean saveRestauntdetail(List<RestaurantBean> al);
+
+}

@@ -1,0 +1,12 @@
+package com.restaurant.api.dao;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.restaurant.api.bean.CreditCard;
+
+
+public interface UserRepository extends CrudRepository<CreditCard, Integer> {
+    //void saveAll(List<CreditcCard> credit);
+}
