@@ -1,5 +1,0 @@
-package com.restaurant.api.bean;
-
-public class ResturantandLocationDTO {
-
-}

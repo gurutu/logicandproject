@@ -1,5 +1,0 @@
-package com.restaurant.api.dao;
-
-public interface RestaurantDao {
-
-}
