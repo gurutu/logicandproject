@@ -1,4 +1,8 @@
-
+/**
+*How you need to run application on CMD 
+* javac MouseMover.java
+* java MouseMover
+*/
 import java.awt.*;
 import java.util.*;
 
